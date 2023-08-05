@@ -51,5 +51,6 @@ use({
 	-- install jsregexp (optional!:).
 	run = "make install_jsregexp"
 })
+use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
 end)

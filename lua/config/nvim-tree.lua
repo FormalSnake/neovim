@@ -9,7 +9,7 @@ local WIDTH_RATIO = 0.5
 
 require("nvim-tree").setup({
 filters = {
-    dotfiles = false,
+    dotfiles = true,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
   disable_netrw = true,
@@ -24,7 +24,7 @@ filters = {
   view = {
     relativenumber = true,
     float = {
-      enable = true,
+      enable = false,
       open_win_config = function()
         local screen_w = vim.opt.columns:get()
         local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -44,9 +44,9 @@ filters = {
         }
         end,
     },
-    width = function()
-      return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-    end,
+   -- width = function()
+   --   return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+   -- end,
   },
   git = {
     enable = false,

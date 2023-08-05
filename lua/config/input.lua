@@ -13,4 +13,7 @@ map('n', '<leader>fg', ':Telescope live_grep<CR>')
 map('n', '<leader>fb', ':Telescope buffers<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
 map('n', '<leader>fx', ':Telescope treesitter<CR>')
+vim.keymap.set('n', '<leader>v', function () require("nvterm.terminal").toggle "horizontal" end)
 
+vim.wo.number = true
+vim.wo.relativenumber = true

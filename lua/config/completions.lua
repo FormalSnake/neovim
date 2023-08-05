@@ -1,8 +1,54 @@
 local cmp = require("cmp")
 require("luasnip.loaders.from_vscode").lazy_load()
+local field_arrangement = {
+  atom = { "kind", "abbr", "menu" },
+  atom_colored = { "kind", "abbr", "menu" },
+}
 
+local formatting_style = {
+  -- default fields order i.e completion word + item.kind + item.kind icons
+  fields = { "abbr", "kind", "menu" },
 
-cmp.setup({mapping = cmp.mapping.preset.insert({
+  format = function(_, item)
+    local icons = require("nvchad_ui.icons").lspkind
+    local icon = icons[item.kind] or ""
+
+      icon = " " .. icon .. " "
+      item.menu = ("   (" .. item.kind .. ")") or ""
+      item.kind = icon
+
+    return item
+  end,
+}
+
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+cmp.setup({
+ completion = {
+    completeopt = "menu,menuone",
+  },
+	window = {
+    completion = {
+      side_padding = 2,
+      winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
+      scrollbar = false,
+    },
+    documentation = {
+      winhighlight = "Normal:CmpDoc",
+    },
+  },
+    formatting = formatting_style,
+  mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-o>'] = cmp.mapping.complete(),

@@ -23,8 +23,7 @@ require("nvterm").setup({
       confirm = true,
     },
     close_on_exit = true,
-    auto_insert = true,
+    auto_insert = false,
   },
 })
 
-require("nvterm.terminal").toggle "horizontal"
