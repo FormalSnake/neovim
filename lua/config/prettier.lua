@@ -1,4 +1,5 @@
 local prettier = require("prettier")
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 prettier.setup({
   bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
