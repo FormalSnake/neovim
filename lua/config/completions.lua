@@ -9,16 +9,6 @@ local formatting_style = {
   -- default fields order i.e completion word + item.kind + item.kind icons
   fields = { "abbr", "kind", "menu" },
 
-  format = function(_, item)
-    local icons = require("nvchad_ui.icons").lspkind
-    local icon = icons[item.kind] or ""
-
-      icon = " " .. icon .. " "
-      item.menu = ("   (" .. item.kind .. ")") or ""
-      item.kind = icon
-
-    return item
-  end,
 }
 
 local function border(hl_name)

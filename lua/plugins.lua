@@ -1,67 +1,69 @@
-
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use({ "MaximilianLloyd/ascii.nvim", requires = {
-	"MunifTanjim/nui.nvim" 
-} })
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use { 'm00qek/baleia.nvim', tag = 'v1.3.0' }
-  use {
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
+  "MaximilianLloyd/ascii.nvim",
+	"MunifTanjim/nui.nvim",
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  'm00qek/baleia.nvim',
   'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons', 
-  },
-}
-use {
+    'nvim-tree/nvim-web-devicons',
   'samodostal/image.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim'
-  },
-}
-use {'edluffy/hologram.nvim'}
-use {
+    'nvim-lua/plenary.nvim',
+'edluffy/hologram.nvim',
+
+{
   "folke/which-key.nvim",
-  config = function()
+  event = "VeryLazy",
+  init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
-  end
-}
-use('neovim/nvim-lspconfig')
-use('jose-elias-alvarez/null-ls.nvim')
-use('MunifTanjim/prettier.nvim')
-use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.2',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
-use "notken12/base46-colors"
-use "NvChad/nvterm"
-use "lewis6991/gitsigns.nvim"
-use "NvChad/ui"
-use "williamboman/mason.nvim"
-use "williamboman/mason-lspconfig.nvim"
-use "glepnir/lspsaga.nvim"
-use "hrsh7th/nvim-cmp"
-use "nvim-treesitter/nvim-treesitter"
-use "hrsh7th/cmp-nvim-lsp"
-use {
+  end,
+},
+
+'neovim/nvim-lspconfig',
+'jose-elias-alvarez/null-ls.nvim',
+'MunifTanjim/prettier.nvim',
+  'nvim-telescope/telescope.nvim',
+  'nvim-lua/plenary.nvim',
+"notken12/base46-colors",
+"NvChad/nvterm",
+"lewis6991/gitsigns.nvim",
+{
+    "NvChad/ui",
+    branch = "v2.0",
+    lazy = false,
+  },
+"williamboman/mason.nvim",
+"williamboman/mason-lspconfig.nvim",
+"glepnir/lspsaga.nvim",
+"hrsh7th/nvim-cmp",
+"nvim-treesitter/nvim-treesitter",
+"hrsh7th/cmp-nvim-lsp",
   'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-}
-use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-}
-use "lukas-reineke/indent-blankline.nvim"
-use "rafamadriz/friendly-snippets"
-use({
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+},
+"lukas-reineke/indent-blankline.nvim",
+"rafamadriz/friendly-snippets",
+{
 	"L3MON4D3/LuaSnip",
 	-- follow latest release.
-	tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!:).
-	run = "make install_jsregexp"
-})
-use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+	version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp"
+},
+'akinsho/bufferline.nvim',
 
-end)
+})
