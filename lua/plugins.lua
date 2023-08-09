@@ -11,8 +11,36 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
+    { 'Bekaboo/deadcolumn.nvim' },
+--      { 'Bekaboo/dropbar.nvim' },
+-- {
+  -- 'glepnir/dashboard-nvim',
+  -- event = 'VimEnter',
+  -- config = function()
+  --   require('dashboard').setup {
+      -- config
+    -- }
+  -- end,
+  -- dependencies = { {'nvim-tree/nvim-web-devicons'}}
+-- },
+"jghauser/mkdir.nvim",
+{
+  'stevearc/dressing.nvim',
+  opts = {},
+},
+'f-person/git-blame.nvim',
+{
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+},
+"karb94/neoscroll.nvim",
+"alec-gibson/nvim-tetris",
   "MaximilianLloyd/ascii.nvim",
 	"MunifTanjim/nui.nvim",
+	"yamatsum/nvim-cursorline",
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   'm00qek/baleia.nvim',
   'nvim-tree/nvim-tree.lua',
@@ -20,6 +48,7 @@ require("lazy").setup({
   'samodostal/image.nvim',
     'nvim-lua/plenary.nvim',
 'edluffy/hologram.nvim',
+'Xuyuanp/scrollbar.nvim',
 
 {
   "folke/which-key.nvim",
@@ -31,6 +60,7 @@ require("lazy").setup({
 },
 
 'neovim/nvim-lspconfig',
+'rmagatti/auto-session',
 'jose-elias-alvarez/null-ls.nvim',
 'MunifTanjim/prettier.nvim',
   'nvim-telescope/telescope.nvim',
@@ -67,3 +97,4 @@ require("lazy").setup({
 'akinsho/bufferline.nvim',
 
 })
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy: Manage plugins' })

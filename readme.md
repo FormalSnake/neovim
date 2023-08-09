@@ -11,8 +11,8 @@ This is a W.I.P. Nvim config meant to be modular, easy to use, practical and aes
 
 Install Nvim
 
-1. Clone the *neovin* repository in *.config/nvim*
-2. Open Nvim and *:PackerSync*
+1. Clone the *neovim* repository in *.config/nvim*
+2. Open Nvim and everything should work! Just install some language servers
 
 That should be all! 
 

@@ -109,7 +109,7 @@ cp.setup({
             -- LspInlayHint = { bg = colors.mantle },
 
             -- Visual Mode
-            Visual = { bg = ucolors.darken('#9745be', 0.25, mocha.mantle), style = { 'italic' } },
+            Visual = { bg = colors.darken('#9745be', 0.25), style = { 'italic' } },
         }
     end,
     integrations = {
