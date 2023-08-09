@@ -3,13 +3,24 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use({ "MaximilianLloyd/ascii.nvim", requires = {
+	"MunifTanjim/nui.nvim" 
+} })
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'm00qek/baleia.nvim', tag = 'v1.3.0' }
   use {
   'nvim-tree/nvim-tree.lua',
   requires = {
     'nvim-tree/nvim-web-devicons', 
   },
 }
+use {
+  'samodostal/image.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim'
+  },
+}
+use {'edluffy/hologram.nvim'}
 use {
   "folke/which-key.nvim",
   config = function()

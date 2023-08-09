@@ -63,6 +63,7 @@ local options = {
 
 -- check for any override
 telescope.setup(options)
+telescope.load_extension("ascii")
 
 -- load extensions
 pcall(function()
