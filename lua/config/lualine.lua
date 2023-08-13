@@ -21,7 +21,7 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', require('auto-session.lib').current_session_name, 'filetype'},
+    lualine_x = {'encoding', "󱔎", require('auto-session.lib').current_session_name, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },

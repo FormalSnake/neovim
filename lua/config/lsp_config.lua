@@ -17,6 +17,8 @@ vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<cr>', { silent = true })
 vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+vim.keymap.set('n', '<leader>dr', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<leader>df', vim.diagnostic.goto_next)
 
 require("lspconfig").lua_ls.setup {
   capabilities = capabilities,

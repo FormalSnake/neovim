@@ -18,6 +18,7 @@ require('config.cursorline')
 require('config.scroll')
 require('config.comment-auto')
 require('config.autosession')
+require('config.formatsave')
 vim.api.nvim_set_option("clipboard","unnamed")
 
 vim.api.nvim_create_autocmd('ColorScheme', {
