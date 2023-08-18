@@ -20,6 +20,14 @@ require('config.comment-auto')
 require('config.autosession')
 require('config.formatsave')
 require('config.indent')
+require('config.tailwind')
+require('config.cmdline')
+require('config.cellular')
+require('config.lsplines')
+require('config.noiceconf')
+require('config.todo')
+
+
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.api.nvim_create_autocmd('ColorScheme', {

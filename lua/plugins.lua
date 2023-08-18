@@ -36,20 +36,55 @@ require("lazy").setup({
 		},
 		lazy = false,
 	},
-	"karb94/neoscroll.nvim",
+	'eandrju/cellular-automaton.nvim',
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		}
+	},
+	'petertriho/nvim-scrollbar',
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+
+	},
+	'uga-rosa/ccc.nvim',
+	'wintermute-cell/gitignore.nvim',
+	{ "shortcuts/no-neck-pain.nvim", version = "*" },
+	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	"nvChad/nvim-colorizer.lua",
 	"elentok/format-on-save.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	"alec-gibson/nvim-tetris",
 	"MaximilianLloyd/ascii.nvim",
 	"MunifTanjim/nui.nvim",
+	"roobert/tailwindcss-colorizer-cmp.nvim",
 	"yamatsum/nvim-cursorline",
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim",                    name = "catppuccin", priority = 1000 },
 	'm00qek/baleia.nvim',
 	'nvim-tree/nvim-tree.lua',
 	'nvim-tree/nvim-web-devicons',
 	'samodostal/image.nvim',
 	'nvim-lua/plenary.nvim',
+	'sindrets/diffview.nvim',
 	'edluffy/hologram.nvim',
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+		}
+
+	},
 	'Xuyuanp/scrollbar.nvim',
 
 	{
