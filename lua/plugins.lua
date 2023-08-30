@@ -37,6 +37,7 @@ require("lazy").setup({
 		lazy = false,
 	},
 	'eandrju/cellular-automaton.nvim',
+	'simrat39/symbols-outline.nvim',
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -52,17 +53,72 @@ require("lazy").setup({
 			"rcarriga/nvim-notify",
 		}
 	},
+	'xiyaowong/transparent.nvim',
 	'petertriho/nvim-scrollbar',
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		event = "LspAttach",
+		opts = {
+			-- options
+		},
+	},
+
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function() require("flash").jump() end,
+				desc =
+				"Flash"
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function() require("flash").treesitter() end,
+				desc =
+				"Flash Treesitter"
+			},
+			{
+				"r",
+				mode = "o",
+				function() require("flash").remote() end,
+				desc =
+				"Remote Flash"
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function() require("flash").treesitter_search() end,
+				desc =
+				"Treesitter Search"
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function() require("flash").toggle() end,
+				desc =
+				"Toggle Flash Search"
+			},
+		},
 	},
 	'uga-rosa/ccc.nvim',
 	'wintermute-cell/gitignore.nvim',
 	{ "shortcuts/no-neck-pain.nvim", version = "*" },
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	"nvChad/nvim-colorizer.lua",
+	'brenoprata10/nvim-highlight-colors',
 	"elentok/format-on-save.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	"alec-gibson/nvim-tetris",

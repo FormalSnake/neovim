@@ -26,6 +26,9 @@ require('config.cellular')
 require('config.lsplines')
 require('config.noiceconf')
 require('config.todo')
+require('config.outline')
+require('config.colorizer')
+require('config.fidgetlsp')
 
 
 vim.api.nvim_set_option("clipboard", "unnamed")

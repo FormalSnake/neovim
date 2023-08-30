@@ -9,6 +9,7 @@ function map(mode, lhs, rhs, opts)
 end
 
 map('n', '<leader>e', ":NvimTreeToggle<CR>")
+map('n', '<leader>Oo', ":SymbolsOutline<CR>")
 map('n', '<leader>ff', ':Telescope find_files<CR>')
 map('n', '<leader>fg', ':Telescope live_grep<CR>')
 map('n', '<leader>fb', ':Telescope buffers<CR>')
@@ -21,4 +22,3 @@ vim.keymap.set('n', '<leader>v', function() require("nvterm.terminal").toggle "h
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-
