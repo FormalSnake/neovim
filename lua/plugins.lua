@@ -165,7 +165,7 @@ require("lazy").setup({
 	"williamboman/mason-lspconfig.nvim",
 	"glepnir/lspsaga.nvim",
 	"hrsh7th/nvim-cmp",
-	"nvim-treesitter/nvim-treesitter",
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"hrsh7th/cmp-nvim-lsp",
 	'nvim-lualine/lualine.nvim',
 	{

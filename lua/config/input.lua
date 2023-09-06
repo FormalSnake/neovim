@@ -17,8 +17,11 @@ map('n', '<leader>fh', ':Telescope help_tags<CR>')
 map('n', '<leader>fx', ':Telescope treesitter<CR>')
 map('n', '<leader>lt', ':TroubleToggle<CR>')
 map('n', '<leader>gdf', ':DiffviewOpen<CR>')
+map('n', '<leader>lo', ':OrganizeImports<CR>')
+
 
 vim.keymap.set('n', '<leader>v', function() require("nvterm.terminal").toggle "horizontal" end)
 
+-- Define a function to set your window options
 vim.wo.number = true
 vim.wo.relativenumber = true
