@@ -11,8 +11,6 @@ This is a W.I.P. Nvim config meant to be modular, easy to use, practical and aes
 
 ## Plugins
 
-Here's the block of code turned into a Markdown list containing the plugin names, descriptions, and links where applicable:
-
 1. [**Bekaboo/deadcolumn.nvim**](https://github.com/Bekaboo/deadcolumn.nvim)
 
    - Limits line width

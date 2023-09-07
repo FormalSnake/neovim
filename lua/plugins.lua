@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- limits line width
-	{ 'Bekaboo/deadcolumn.nvim' }
+	{ 'Bekaboo/deadcolumn.nvim' },
 	--      { 'Bekaboo/dropbar.nvim' },
 	-- {
 	-- 'glepnir/dashboard-nvim',
@@ -26,6 +26,7 @@ require("lazy").setup({
 	-- },
 	-- Creates missing files on save
 	"jghauser/mkdir.nvim",
+	"jose-elias-alvarez/null-ls.nvim",
 	-- Makes the UI pretty :)
 	{
 		'stevearc/dressing.nvim',
