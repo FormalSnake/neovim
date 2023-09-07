@@ -214,6 +214,10 @@ This is a W.I.P. Nvim config meant to be modular, easy to use, practical and aes
 51. [**akinsho/bufferline.nvim**](https://github.com/akinsho/bufferline.nvim)
     - Basically tabs
 
+52. [**jose-elias-alvarez/null-ls.nvim**](https://github.com/jose-elias-alvarez/null-ls.nvim)
+
+   - Formatting
+
 ## Using this config
 
 Install Nvim
