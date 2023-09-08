@@ -9,7 +9,8 @@ require('config.nvterm')
 require('config.mason')
 require('config.which-key')
 require('config.lualine')
-require('config.completions')
+require('config.cmpconf')
+-- require('config.completions')
 require('config.lsp_config')
 require('config.treesitter')
 require('config.buffer')
@@ -33,19 +34,19 @@ require('config.fidgetlsp')
 
 vim.api.nvim_set_option("clipboard", "unnamed")
 
-vim.api.nvim_create_autocmd('ColorScheme', {
-	callback = function()
-		local highlights = {
-			'Normal',
-			'LineNr',
-			'Folded',
-			'NonText',
-			'SpecialKey',
-			'VertSplit',
-			'SignColumn',
-			'EndOfBuffer',
-			'TablineFill', -- this is specific to how I like my tabline to look like
-		}
-		for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
-	end,
-})
+-- vim.api.nvim_create_autocmd('ColorScheme', {
+-- 	callback = function()
+-- 		local highlights = {
+-- 			'Normal',
+-- 			'LineNr',
+-- 			'Folded',
+-- 			'NonText',
+-- 			'SpecialKey',
+-- 			'VertSplit',
+-- 			'SignColumn',
+-- 			'EndOfBuffer',
+-- 			'TablineFill', -- this is specific to how I like my tabline to look like
+-- 		}
+-- 		for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
+-- 	end,
+-- })

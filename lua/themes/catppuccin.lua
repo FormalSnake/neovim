@@ -8,7 +8,7 @@ cp.setup({
 	},
 	transparent_background = false, -- disables setting the background color.
 	show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-	term_colors = false,     -- sets terminal colors (e.g. `g:terminal_color_0`)
+	term_colors = true,      -- sets terminal colors (e.g. `g:terminal_color_0`)
 	dim_inactive = {
 		enabled = false, -- dims the background color of inactive window
 		shade = "dark",
@@ -70,22 +70,38 @@ cp.setup({
 			-- CmpItemKindOperator = { fg = colors.base, bg = colors.blue },
 			-- CmpItemKindTypeParameter = { fg = colors.base, bg = colors.blue },
 			-- CmpItemKindCopilot = { fg = colors.base, bg = colors.teal },
+			CmpBorder = { fg = colors.blue, bg = colors.blue },
+
 
 			-- Telescope
 			TelescopeBorder = { fg = colors.blue },
 			TelescopeSelectionCaret = { fg = colors.flamingo },
-			TelescopeSelection = { fg = colors.text, bg = colors.surface0, style = { 'bold' } },
-			TelescopeMatching = { fg = colors.blue },
-			TelescopePromptPrefix = { fg = colors.yellow, bg = colors.crust },
-			TelescopePromptNormal = { bg = colors.crust },
+			-- TelescopeSelection = { fg = colors.text, bg = colors.surface0, style = { 'bold' } },
+			-- TelescopeMatching = { fg = colors.blue },
+			-- TelescopePromptPrefix = { fg = colors.yellow, bg = colors.crust },
+			-- TelescopePromptNormal = { bg = colors.crust },
+			-- TelescopeResultsNormal = { bg = colors.mantle },
+			-- TelescopePreviewNormal = { bg = colors.crust },
+			-- TelescopePromptBorder = { bg = colors.crust, fg = colors.crust },
+			-- TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+			-- TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
+			-- TelescopePromptTitle = { fg = colors.crust, bg = colors.mauve },
+			-- TelescopeResultsTitle = { fg = colors.crust, bg = colors.mauve },
+			-- TelescopePreviewTitle = { fg = colors.crust, bg = colors.mauve },
+
+			TelescopeMatching = { fg = colors.flamingo },
+			TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+
+			TelescopePromptPrefix = { bg = colors.surface0 },
+			TelescopePromptNormal = { bg = colors.surface0 },
 			TelescopeResultsNormal = { bg = colors.mantle },
-			TelescopePreviewNormal = { bg = colors.crust },
-			TelescopePromptBorder = { bg = colors.crust, fg = colors.crust },
+			TelescopePreviewNormal = { bg = colors.mantle },
+			TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
 			TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-			TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
-			TelescopePromptTitle = { fg = colors.crust, bg = colors.mauve },
-			TelescopeResultsTitle = { fg = colors.crust, bg = colors.mauve },
-			TelescopePreviewTitle = { fg = colors.crust, bg = colors.mauve },
+			TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+			TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+			TelescopeResultsTitle = { fg = colors.mantle },
+			TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
 
 			-- Bufferline
 			BufferLineIndicatorSelected = { fg = colors.pink },
@@ -117,8 +133,8 @@ cp.setup({
 		gitsigns = true,
 		nvimtree = true,
 		treesitter = true,
-		notify = false,
-		mini = false,
+		notify = true,
+		mini = true,
 		telescope = true,
 		indent_blankline = {
 			enabled = true,

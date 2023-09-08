@@ -23,6 +23,10 @@ require("nvim-tree").setup({
 	},
 	view = {
 		relativenumber = false,
+		adaptive_size = false,
+		side = "left",
+		width = 30,
+		preserve_window_proportions = true,
 		float = {
 			enable = false,
 			open_win_config = function()
@@ -66,7 +70,7 @@ require("nvim-tree").setup({
 		highlight_opened_files = "none",
 
 		indent_markers = {
-			enable = false,
+			enable = true,
 		},
 
 		icons = {
