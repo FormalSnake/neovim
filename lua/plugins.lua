@@ -24,6 +24,7 @@ require("lazy").setup({
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
+	"RRethy/vim-illuminate",
 	-- {
 	-- 	"FormalSnake/base46-colors",
 	--
@@ -173,7 +174,7 @@ require("lazy").setup({
 	-- This adds colors to tailwind syntax highlighting
 	"roobert/tailwindcss-colorizer-cmp.nvim",
 	-- Highlights words under your cursor, and also the same words accross the file
-	"yamatsum/nvim-cursorline",
+	-- "yamatsum/nvim-cursorline",
 	-- IDK, plugins require it
 	'm00qek/baleia.nvim',
 	-- Sidebar file explorer, mostly for aesthetics

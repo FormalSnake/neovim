@@ -9,6 +9,7 @@ local formatting_style = {
 	format = require('tailwindcss-colorizer-cmp').formatter,
 }
 
+
 local function border(hl_name)
 	return {
 		{ "╭", hl_name },
@@ -21,7 +22,15 @@ local function border(hl_name)
 		{ "│", hl_name },
 	}
 end
-
+local icons = {
+	Text = "󰙩",
+	Variable = "󱩺",
+	Snippet = "",
+	Function = "󰊕",
+	Keyword = "󰌆",
+	Fields = "",
+	Property = "",
+}
 local options = {
 	completion = {
 		completeopt = "menu,menuone",
@@ -30,7 +39,7 @@ local options = {
 	window = {
 		completion = {
 			side_padding = 0,
-			winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
+			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:PmenuSel",
 			scrollbar = true,
 			border = border "CmpDocBorder",
 		},
@@ -45,8 +54,14 @@ local options = {
 		end,
 	},
 
-	formatting = formatting_style,
 
+	-- formatting = formatting_style,
+	formatting = {
+		format = function(_, vim_item)
+			vim_item.kind = icons[vim_item.kind] or vim_item.kind
+			return vim_item
+		end,
+	},
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
@@ -96,8 +111,6 @@ local options = {
 	},
 	{
 		{ name = 'buffer' },
-
 	},
 }
-
 require("cmp").setup(options)
