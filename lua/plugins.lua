@@ -160,7 +160,14 @@ require("lazy").setup({
 	-- Highlights words under your cursor, and also the same words accross the file
 	"yamatsum/nvim-cursorline",
 	-- The best theme ever
-	-- { "catppuccin/nvim",                    name = "catppuccin", priority = 1000 },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require('themes.catppuccin')
+		end
+	},
 	-- IDK, plugins require it
 	'm00qek/baleia.nvim',
 	-- Sidebar file explorer, mostly for aesthetics

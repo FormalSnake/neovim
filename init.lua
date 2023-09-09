@@ -1,6 +1,5 @@
 require('plugins')
 require('config.input')
-require('themes.catppuccin')
 require('config.nvim-tree')
 require('config.null-ls')
 require('config.prettier')
