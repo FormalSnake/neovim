@@ -12,23 +12,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- The best theme ever
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require('themes.catppuccinth')
-	-- 	end
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require('themes.catppuccin')
+		end
+	},
 
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
-	{
-		"FormalSnake/base46-colors",
-
-		priority = 1000,
-	},
+	-- {
+	-- 	"FormalSnake/base46-colors",
+	--
+	-- 	priority = 1000,
+	-- },
 	--      { 'Bekaboo/dropbar.nvim' },
 	-- {
 	-- 'glepnir/dashboard-nvim',
@@ -253,4 +253,4 @@ require("lazy").setup({
 })
 
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy: Manage plugins' })
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
