@@ -28,7 +28,7 @@ local icons = {
 	Variable = "󰜢",
 	Snippet = "",
 	Function = "󰊕",
-	Keyword = "󰌆",
+	Keyword = "󰌋",
 	Field = "",
 	Property = "",
 	Enum = "",
@@ -60,7 +60,7 @@ local options = {
 	-- formatting = formatting_style,
 	formatting = {
 		format = function(_, vim_item)
-			vim_item.kind = icons[vim_item.kind] or vim_item.kind
+			vim_item.kind = icons[vim_item.kind] .. " " .. vim_item.kind or vim_item.kind
 			return vim_item
 		end,
 	},
