@@ -8,6 +8,7 @@ require('config.telescope')
 require('config.nvterm')
 require('config.mason')
 require('config.which-key')
+require("config.inclineconf")
 require('config.lualine')
 require('config.cmpconf')
 -- require('config.completions')
@@ -30,6 +31,9 @@ require('config.todo')
 require('config.outline')
 require('config.colorizer')
 require('config.fidgetlsp')
+require('config.context')
+-- require("config.dashboard")
+
 
 
 vim.api.nvim_set_option("clipboard", "unnamed")

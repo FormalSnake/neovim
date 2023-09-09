@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
+	"nvim-treesitter/nvim-treesitter-context",
 	-- "notken12/base46-colors",
 	--      { 'Bekaboo/dropbar.nvim' },
 	-- {
@@ -27,6 +28,7 @@ require("lazy").setup({
 	-- },
 	-- Creates missing files on save
 	"jghauser/mkdir.nvim",
+	"b0o/incline.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
 	-- Makes the UI pretty :)
 	{
@@ -82,6 +84,10 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 
 	},
+	-- {
+	-- 	"startup-nvim/startup.nvim",
+	-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	-- },
 	-- Better search
 	{
 		"folke/flash.nvim",
@@ -154,7 +160,7 @@ require("lazy").setup({
 	-- Highlights words under your cursor, and also the same words accross the file
 	"yamatsum/nvim-cursorline",
 	-- The best theme ever
-	{ "catppuccin/nvim",                    name = "catppuccin", priority = 1000 },
+	-- { "catppuccin/nvim",                    name = "catppuccin", priority = 1000 },
 	-- IDK, plugins require it
 	'm00qek/baleia.nvim',
 	-- Sidebar file explorer, mostly for aesthetics
@@ -207,7 +213,7 @@ require("lazy").setup({
 	-- Shows the fancy autocomplete window O.O
 	"hrsh7th/nvim-cmp",
 	-- your code gets colors O.O
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
 	-- CMP with LSP integration
 	"hrsh7th/cmp-nvim-lsp",
 	-- The bar at the bottom of your neovim, mostly for aesthetics
