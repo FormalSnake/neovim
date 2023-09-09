@@ -22,14 +22,16 @@ local function border(hl_name)
 		{ "│", hl_name },
 	}
 end
+
 local icons = {
-	Text = "󰙩",
-	Variable = "󱩺",
+	Text = "󰉿",
+	Variable = "󰜢",
 	Snippet = "",
 	Function = "󰊕",
 	Keyword = "󰌆",
-	Fields = "",
+	Field = "",
 	Property = "",
+	Enum = "",
 }
 local options = {
 	completion = {
