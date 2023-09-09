@@ -83,6 +83,27 @@ require("nvim-tree").setup({
 				none = " ",
 			},
 		},
+		diagnostics = {
+			enable = true,
+			show_on_dirs = false,
+			show_on_open_dirs = true,
+			debounce_delay = 50,
+			severity = {
+				min = vim.diagnostic.severity.HINT,
+				max = vim.diagnostic.severity.ERROR,
+			},
+			icons = {
+				hint = "",
+				info = "",
+				warning = "",
+				error = "",
+			},
+		},
+		modified = {
+			enable = true,
+			show_on_dirs = true,
+			show_on_open_dirs = true,
+		},
 
 		icons = {
 			indent_markers = {
@@ -121,4 +142,18 @@ require("nvim-tree").setup({
 			},
 		},
 	},
+})
+
+local autocmd = vim.api.nvim_create_autocmd
+-- restore nvim-tree with auto-session
+autocmd({ "BufEnter" }, {
+	pattern = "NvimTree*",
+	callback = function()
+		local api = require "nvim-tree.api"
+		local view = require "nvim-tree.view"
+
+		if not view.is_visible() then
+			api.tree.open()
+		end
+	end,
 })
