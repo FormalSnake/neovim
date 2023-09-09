@@ -11,10 +11,24 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
+	-- The best theme ever
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require('themes.catppuccinth')
+	-- 	end
+	-- },
+
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
-	-- "notken12/base46-colors",
+	{
+		"FormalSnake/base46-colors",
+
+		priority = 1000,
+	},
 	--      { 'Bekaboo/dropbar.nvim' },
 	-- {
 	-- 'glepnir/dashboard-nvim',
@@ -27,6 +41,7 @@ require("lazy").setup({
 	-- dependencies = { {'nvim-tree/nvim-web-devicons'}}
 	-- },
 	-- Creates missing files on save
+
 	"jghauser/mkdir.nvim",
 	"b0o/incline.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
@@ -159,15 +174,6 @@ require("lazy").setup({
 	"roobert/tailwindcss-colorizer-cmp.nvim",
 	-- Highlights words under your cursor, and also the same words accross the file
 	"yamatsum/nvim-cursorline",
-	-- The best theme ever
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require('themes.catppuccin')
-		end
-	},
 	-- IDK, plugins require it
 	'm00qek/baleia.nvim',
 	-- Sidebar file explorer, mostly for aesthetics
@@ -207,7 +213,7 @@ require("lazy").setup({
 	-- Allows you to fuzzyfind files and buffers, etc.
 	'nvim-telescope/telescope.nvim',
 	-- Makes the theme work with the custom telescope layout
-	"notken12/base46-colors",
+	-- "notken12/base46-colors",
 	-- Built in terminal if you are too lazy to use tmux panes
 	"NvChad/nvterm",
 	-- Git features
@@ -245,4 +251,6 @@ require("lazy").setup({
 	'akinsho/bufferline.nvim',
 
 })
+
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy: Manage plugins' })
+vim.cmd.colorscheme "catppuccin"
