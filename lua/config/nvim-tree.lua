@@ -23,7 +23,7 @@ require("nvim-tree").setup({
 	},
 	view = {
 		relativenumber = false,
-		adaptive_size = false,
+		adaptive_size = true,
 		side = "left",
 		width = 30,
 		preserve_window_proportions = true,
@@ -65,15 +65,30 @@ require("nvim-tree").setup({
 		},
 	},
 	renderer = {
-		root_folder_label = false,
+		root_folder_label = ":~:s?$?/..?",
+		indent_width = 2,
+		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+		symlink_destination = true,
 		highlight_git = false,
-		highlight_opened_files = "none",
-
+		highlight_opened_files = "name",
+		highlight_modified = "icon",
 		indent_markers = {
 			enable = true,
+			inline_arrows = true,
+			icons = {
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			},
 		},
 
 		icons = {
+			indent_markers = {
+				enable = true,
+			},
+
 			show = {
 				file = true,
 				folder = true,

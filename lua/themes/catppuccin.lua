@@ -37,6 +37,9 @@ cp.setup({
 			-- Identifier (like keyword require)
 			['@function.builtin'] = { fg = colors.flamingo },
 
+
+
+
 			-- Cmp Menu
 			-- Pmenu = { bg = colors.mantle },
 			-- PmenuSel = { fg = colors.mantle, bg = colors.maroon, style = { 'bold' } },

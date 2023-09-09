@@ -4,6 +4,7 @@ require("nvim-treesitter").setup({
 	auto_install = true,
 	highlight = {
 		enable = true,
+		additional_vim_regex_highlighting = false,
 		use_languagetree = true,
 		-- disable = function(lang, buf)
 		-- 	local max_filesize = 100 * 1024 -- 100 KB

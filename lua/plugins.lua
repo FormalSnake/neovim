@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
+	-- "notken12/base46-colors",
 	--      { 'Bekaboo/dropbar.nvim' },
 	-- {
 	-- 'glepnir/dashboard-nvim',
