@@ -13,7 +13,7 @@ require('config.cmpconf')
 -- require('config.completions')
 require('config.lsp_config')
 require('config.treesitter')
-require('config.buffer')
+-- require('config.buffer')
 require('config.image')
 -- require('config.cursorline')
 -- require('config.scroll')
@@ -23,7 +23,7 @@ require('config.formatsave')
 require('config.indent')
 require('config.tailwind')
 require('config.cmdline')
-require('config.cellular')
+-- require('config.cellular')
 require('config.lsplines')
 require('config.noiceconf')
 require('config.todo')
@@ -37,6 +37,7 @@ require('config.illuminate')
 
 
 vim.api.nvim_set_option("clipboard", "unnamed")
+
 
 -- vim.api.nvim_create_autocmd('ColorScheme', {
 -- 	callback = function()

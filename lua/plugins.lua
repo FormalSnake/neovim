@@ -43,7 +43,7 @@ require("lazy").setup({
 	-- },
 	-- Creates missing files on save
 
-	"jghauser/mkdir.nvim",
+	-- "jghauser/mkdir.nvim",
 	"b0o/incline.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
 	-- Makes the UI pretty :)
@@ -62,7 +62,7 @@ require("lazy").setup({
 		lazy = false,
 	},
 	-- This adds fun physics to your code if you are bored :D
-	'eandrju/cellular-automaton.nvim',
+	-- 'eandrju/cellular-automaton.nvim',
 	-- Shows you all of the functions, etc. in your file
 	'simrat39/symbols-outline.nvim',
 	-- Adds the notifications and stuff
@@ -154,7 +154,7 @@ require("lazy").setup({
 	-- This generates gitignores
 	'wintermute-cell/gitignore.nvim',
 	-- This allows you to center the current buffer to reduce stress on your neck
-	{ "shortcuts/no-neck-pain.nvim", version = "*" },
+	-- { "shortcuts/no-neck-pain.nvim", version = "*" },
 	-- This makes the errors in your code point to the characters using lines, but it does get messy sometimes
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	-- Inline colors, like red
@@ -166,7 +166,7 @@ require("lazy").setup({
 	-- Adds indicators to see what function you're in
 	{ "lukas-reineke/indent-blankline.nvim" },
 	-- Tetris ;)
-	"alec-gibson/nvim-tetris",
+	-- "alec-gibson/nvim-tetris",
 	-- This allows for us to show images in neovim using any terminal emulator!!
 	"MaximilianLloyd/ascii.nvim",
 	-- UI library required for the fancy UI ones
@@ -218,7 +218,7 @@ require("lazy").setup({
 	-- Built in terminal if you are too lazy to use tmux panes
 	"NvChad/nvterm",
 	-- Git features
-	"lewis6991/gitsigns.nvim",
+	-- "lewis6991/gitsigns.nvim",
 	-- LSP installer
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -227,7 +227,7 @@ require("lazy").setup({
 	-- Shows the fancy autocomplete window O.O
 	"hrsh7th/nvim-cmp",
 	-- your code gets colors O.O
-	{ "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- CMP with LSP integration
 	"hrsh7th/cmp-nvim-lsp",
 	-- The bar at the bottom of your neovim, mostly for aesthetics
@@ -249,7 +249,7 @@ require("lazy").setup({
 		build = "make install_jsregexp"
 	},
 	-- Basically tabs
-	'akinsho/bufferline.nvim',
+	-- 'akinsho/bufferline.nvim',
 
 })
 

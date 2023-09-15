@@ -44,7 +44,11 @@ require("lspconfig").solargraph.setup {
 	capabilities = capabilities,
 }
 
-require("lspconfig").tsserver.setup {
+-- require("lspconfig").tsserver.setup {
+-- 	capabilities = capabilities,
+-- }
+
+require 'lspconfig'.astro.setup {
 	capabilities = capabilities,
 }
 

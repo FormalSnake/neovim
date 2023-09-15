@@ -24,6 +24,7 @@ format_on_save.setup({
 		typescript = formatters.prettierd,
 		typescriptreact = formatters.prettierd,
 		yaml = formatters.lsp,
+		astro = formatters.prettierd,
 
 		-- Add your own shell formatters:
 		myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),
