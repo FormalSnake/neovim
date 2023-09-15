@@ -61,7 +61,6 @@ local options = {
 	completion = {
 		completeopt = "menu,menuone",
 	},
-
 	window = {
 		completion = {
 			side_padding = 0,
