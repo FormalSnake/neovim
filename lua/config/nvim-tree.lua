@@ -74,7 +74,7 @@ require("nvim-tree").setup({
 		highlight_opened_files = "name",
 		highlight_modified = "icon",
 		indent_markers = {
-			enable = true,
+			enable = false,
 			inline_arrows = true,
 			icons = {
 				corner = "└",
@@ -108,7 +108,7 @@ require("nvim-tree").setup({
 
 		icons = {
 			indent_markers = {
-				enable = true,
+				enable = false,
 			},
 
 			show = {

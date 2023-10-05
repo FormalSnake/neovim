@@ -57,3 +57,5 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 -- 		for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
 -- 	end,
 -- })
+-- vim.cmd(":TSEnable hightlight")
+-- vim.cmd ":Lazy"
