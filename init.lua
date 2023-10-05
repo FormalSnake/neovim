@@ -1,4 +1,5 @@
 require('plugins')
+vim.cmd.colorscheme "onedark"
 require('config.input')
 require('config.nvim-tree')
 require('config.null-ls')
@@ -32,6 +33,7 @@ require('config.colorizer')
 require('config.fidgetlsp')
 require('config.context')
 require('config.illuminate')
+require('config.notifyl')
 -- require("config.dashboard")
 
 

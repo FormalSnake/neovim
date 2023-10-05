@@ -28,6 +28,7 @@ format_on_save.setup({
 
 		-- Add your own shell formatters:
 		myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),
+		csharp = formatters.shell({ cmd = { "dotnet csharpier ." } }),
 		formatters.shell({
 			cmd = { "prettierd", "--stdin-filepath", "%", "--print-width", "80", "--tab-width", "2" } }),
 
