@@ -3,14 +3,20 @@ require("mason-lspconfig").setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require('lspsaga').setup({
-	code_action_icon = "💡",
+	code_action_icon = "",
+	code_action_prompt = {
+		enable = false,
+	},
 	symbol_in_winbar = {
 		in_custom = false,
-		enable = true,
+		enable = false,
 		separator = ' ',
 		show_file = true,
 		file_formatter = ""
 	},
+	ui = {
+		code_action = ''
+	}
 })
 
 vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
@@ -74,13 +80,13 @@ local function organize_imports()
 	vim.lsp.buf.execute_command(params)
 end
 
-require("lspconfig").tsserver.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	commands = {
-		OrganizeImports = {
-			organize_imports,
-			description = "Organize Imports"
-		}
-	}
-}
+-- require("lspconfig").tsserver.setup {
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	commands = {
+-- 		OrganizeImports = {
+-- 			organize_imports,
+-- 			description = "Organize Imports"
+-- 		}
+-- 	}
+-- }

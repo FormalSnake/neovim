@@ -25,10 +25,11 @@ format_on_save.setup({
 		typescriptreact = formatters.prettierd,
 		yaml = formatters.lsp,
 		astro = formatters.prettierd,
+		cs = formatters.lsp,
 
 		-- Add your own shell formatters:
-		myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),
-		csharp = formatters.shell({ cmd = { "dotnet csharpier ." } }),
+		-- myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),
+		-- cs = formatters.shell({ cmd = { "dotnet-csharpier", "%", "--write-stdout", "--no-cache" } }),
 		formatters.shell({
 			cmd = { "prettierd", "--stdin-filepath", "%", "--print-width", "80", "--tab-width", "2" } }),
 

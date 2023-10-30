@@ -24,6 +24,8 @@ require("lazy").setup({
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
+	{ 'echasnovski/mini.map',   version = false },
+	{ 'kosayoda/nvim-lightbulb' },
 	"RRethy/vim-illuminate",
 	{
 		"FormalSnake/base46-colors",
@@ -45,7 +47,7 @@ require("lazy").setup({
 
 	-- "jghauser/mkdir.nvim",
 	"b0o/incline.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
+	-- "jose-elias-alvarez/null-ls.nvim",
 	-- Makes the UI pretty :)
 	{
 		'stevearc/dressing.nvim',
@@ -157,6 +159,11 @@ require("lazy").setup({
 	-- { "shortcuts/no-neck-pain.nvim", version = "*" },
 	-- This makes the errors in your code point to the characters using lines, but it does get messy sometimes
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+	},
 	-- Inline colors, like red
 	"nvChad/nvim-colorizer.lua",
 	-- Same thing as before, but can display hsl(296, 25, 50%)
@@ -227,7 +234,7 @@ require("lazy").setup({
 	-- Shows the fancy autocomplete window O.O
 	"hrsh7th/nvim-cmp",
 	-- your code gets colors O.O
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
 	-- CMP with LSP integration
 	"hrsh7th/cmp-nvim-lsp",
 	-- The bar at the bottom of your neovim, mostly for aesthetics
