@@ -45,7 +45,7 @@ require("nvim-lightbulb").setup({
 	virtual_text = {
 		enabled = true,
 		-- Text to show in the virt_text.
-		text = "💡",
+		text = "",
 		-- Position of virtual text given to |nvim_buf_set_extmark|.
 		-- Can be a number representing a fixed column (see `virt_text_pos`).
 		-- Can be a string representing a position (see `virt_text_win_col`).
