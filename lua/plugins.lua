@@ -27,6 +27,11 @@ require("lazy").setup({
 	{ 'echasnovski/mini.map',   version = false },
 	{ 'kosayoda/nvim-lightbulb' },
 	{
+		'mrcjkb/rustaceanvim',
+		version = '^3', -- Recommended
+		ft = { 'rust' },
+	},
+	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
 		version = "*",
