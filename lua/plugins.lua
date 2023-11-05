@@ -24,6 +24,12 @@ require("lazy").setup({
 	-- limits line width
 	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"windwp/nvim-ts-autotag"
+		}
+	},
 	{ 'echasnovski/mini.map',   version = false },
 	{ 'kosayoda/nvim-lightbulb' },
 	{
@@ -262,7 +268,8 @@ require("lazy").setup({
 		event = "InsertEnter",
 		opts = {} -- this is equalent to setup({}) function
 	},
-	-- Some snippets, did not get this to work tho
+
+	-- 0Some snippets, did not get this to work tho
 	"rafamadriz/friendly-snippets",
 	-- Lua snippets
 	{

@@ -1,5 +1,11 @@
 require("nvim-treesitter").setup({
 	ensure_installed = { "lua", "rust", "ruby", "vim", "typescript", "tsx" },
+	autotag = {
+		enable = true,
+	},
+	autopair = {
+		enable = true,
+	},
 	sync_install = true,
 	auto_install = true,
 	highlight = {
@@ -16,6 +22,23 @@ require("nvim-treesitter").setup({
 	},
 
 	indent = { enable = true },
-
-
 })
+
+require 'nvim-treesitter.configs'.setup {
+	autotag = {
+		enable = true,
+	}
+}
+require('nvim-ts-autotag').setup()
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics,
+	{
+		underline = true,
+		virtual_text = {
+			spacing = 5,
+			severity_limit = 'Warning',
+		},
+		update_in_insert = true,
+	}
+)

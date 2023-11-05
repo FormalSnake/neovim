@@ -21,10 +21,10 @@ format_on_save.setup({
 		scss = formatters.lsp,
 		sh = formatters.shfmt,
 		terraform = formatters.lsp,
-		typescript = formatters.prettierd,
-		typescriptreact = formatters.prettierd,
+		typescript = formatters.lsp,
+		typescriptreact = formatters.lsp,
 		yaml = formatters.lsp,
-		astro = formatters.prettierd,
+		-- astro = formatters.lsp,
 		cs = formatters.lsp,
 
 		-- Add your own shell formatters:
