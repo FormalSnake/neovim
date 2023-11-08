@@ -163,8 +163,19 @@ local mappings = {
 		R = { "<cmd>TSLspRenameFile<cr>", "Rename File" },
 		A = { "<cmd>TSLspImportAll<cr>", "Import All" },
 	},
-
-
+	e = {
+		name = "Tree",
+		e = {
+			"<cmd>NvimTreeToggle<cr>",
+			"Toggle tree" },
+	},
+	s = {
+		name = "Symbols",
+		o = {
+			"<cmd>SymbolsOutline<cr>",
+			"Symbols Outline"
+		}
+	}
 }
 
 local opts = {
