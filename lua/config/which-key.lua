@@ -179,7 +179,7 @@ local mappings = {
 			"Toggle tree" },
 	},
 	s = {
-		name = "Symbols",
+		name = "Symbols & Sessions",
 		o = {
 			"<cmd>SymbolsOutline<cr>",
 			"Symbols Outline"
