@@ -19,8 +19,11 @@ require('possession').setup {
 	},
 	autosave = {
 		current = true,
+		tmp = true,
+		on_load = true,
+		on_quit = true,
 	},
 }
 
 
-vim.cmd(":SLoad")
+-- vim.cmd(":SLoad")

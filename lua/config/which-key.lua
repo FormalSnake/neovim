@@ -63,6 +63,7 @@ local mappings = {
 		l = { "<cmd>:tabnext<cr>", "Next" },
 		c = { "<cmd>:tabc<cr>", "Close" },
 	},
+
 	["T"] = {
 		name = "TreeSitter",
 		s = { "<cmd>:TSToggle hightlight<cr>", "Toggle hightlight" }
@@ -182,6 +183,10 @@ local mappings = {
 		o = {
 			"<cmd>SymbolsOutline<cr>",
 			"Symbols Outline"
+		},
+		l = {
+			"<cmd>SLoad<cr>",
+			"Session load"
 		}
 	}
 }
