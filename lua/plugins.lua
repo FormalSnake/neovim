@@ -21,16 +21,53 @@ require("lazy").setup({
 	-- 	end
 	-- },
 
-	-- limits line width
-	{ 'Bekaboo/deadcolumn.nvim' },
 	"nvim-treesitter/nvim-treesitter-context",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"windwp/nvim-ts-autotag"
 		}
+
 	},
-	{ 'echasnovski/mini.map',   version = false },
+
+	-- Better increase/descrease
+	{
+		"monaqa/dial.nvim",
+		-- stylua: ignore
+		keys = {
+			{
+				"<C-a>",
+				function() return require("dial.map").inc_normal() end,
+				expr = true,
+				desc =
+				"Increment"
+			},
+			{
+				"<C-x>",
+				function() return require("dial.map").dec_normal() end,
+				expr = true,
+				desc =
+				"Decrement"
+			},
+		},
+		config = function()
+			local augend = require("dial.augend")
+			require("dial.config").augends:register_group({
+				default = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.date.alias["%Y/%m/%d"],
+					augend.constant.alias.bool,
+					augend.semver.alias.semver,
+					augend.constant.new({ elements = { "let", "const" } }),
+				},
+			})
+		end,
+	},
+	{
+		'jedrzejboczar/possession.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+	},
 	{ 'kosayoda/nvim-lightbulb' },
 	{
 		'mrcjkb/rustaceanvim',
@@ -55,22 +92,7 @@ require("lazy").setup({
 
 		priority = 1000,
 	},
-	--      { 'Bekaboo/dropbar.nvim' },
-	-- {
-	-- 'glepnir/dashboard-nvim',
-	-- event = 'VimEnter',
-	-- config = function()
-	--   require('dashboard').setup {
-	-- config
-	-- }
-	-- end,
-	-- dependencies = { {'nvim-tree/nvim-web-devicons'}}
-	-- },
-	-- Creates missing files on save
-
-	-- "jghauser/mkdir.nvim",
 	"b0o/incline.nvim",
-	-- "jose-elias-alvarez/null-ls.nvim",
 	-- Makes the UI pretty :)
 	{
 		'stevearc/dressing.nvim',
@@ -86,17 +108,13 @@ require("lazy").setup({
 		},
 		lazy = false,
 	},
-	-- This adds fun physics to your code if you are bored :D
-	-- 'eandrju/cellular-automaton.nvim',
 	-- Shows you all of the functions, etc. in your file
 	'simrat39/symbols-outline.nvim',
 	-- Adds the notifications and stuff
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
@@ -105,6 +123,22 @@ require("lazy").setup({
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		}
+	},
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			timeout = 5000,
+		},
+	},
+	-- { 'echasnovski/mini.nvim',    version = '*', },
+	{
+		"echasnovski/mini.animate",
+		event = "VeryLazy",
+		opts = function(_, opts)
+			opts.scroll = {
+				enable = true,
+			}
+		end,
 	},
 	-- Allows you to make the background translucent
 	'xiyaowong/transparent.nvim',
@@ -129,57 +163,10 @@ require("lazy").setup({
 	-- 	"startup-nvim/startup.nvim",
 	-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	-- },
-	-- Better search
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		---@type Flash.Config
-		opts = {},
-		-- stylua: ignore
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function() require("flash").jump() end,
-				desc =
-				"Flash"
-			},
-			{
-				"S",
-				mode = { "n", "o", "x" },
-				function() require("flash").treesitter() end,
-				desc =
-				"Flash Treesitter"
-			},
-			{
-				"r",
-				mode = "o",
-				function() require("flash").remote() end,
-				desc =
-				"Remote Flash"
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function() require("flash").treesitter_search() end,
-				desc =
-				"Treesitter Search"
-			},
-			{
-				"<c-s>",
-				mode = { "c" },
-				function() require("flash").toggle() end,
-				desc =
-				"Toggle Flash Search"
-			},
-		},
-	},
 	-- Color picker
 	'uga-rosa/ccc.nvim',
 	-- This generates gitignores
 	'wintermute-cell/gitignore.nvim',
-	-- This allows you to center the current buffer to reduce stress on your neck
-	-- { "shortcuts/no-neck-pain.nvim", version = "*" },
 	-- This makes the errors in your code point to the characters using lines, but it does get messy sometimes
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	{
@@ -195,8 +182,6 @@ require("lazy").setup({
 	"elentok/format-on-save.nvim",
 	-- Adds indicators to see what function you're in
 	{ "lukas-reineke/indent-blankline.nvim" },
-	-- Tetris ;)
-	-- "alec-gibson/nvim-tetris",
 	-- This allows for us to show images in neovim using any terminal emulator!!
 	"MaximilianLloyd/ascii.nvim",
 	-- UI library required for the fancy UI ones
@@ -238,7 +223,7 @@ require("lazy").setup({
 	-- Lets you configure the lsp
 	'neovim/nvim-lspconfig',
 	-- Sessions like in vscode
-	'rmagatti/auto-session',
+	-- 'rmagatti/auto-session',
 	-- prettier
 	'MunifTanjim/prettier.nvim',
 	-- Allows you to fuzzyfind files and buffers, etc.
@@ -257,7 +242,7 @@ require("lazy").setup({
 	-- Shows the fancy autocomplete window O.O
 	"hrsh7th/nvim-cmp",
 	-- your code gets colors O.O
-	{ "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- CMP with LSP integration
 	"hrsh7th/cmp-nvim-lsp",
 	-- The bar at the bottom of your neovim, mostly for aesthetics
@@ -269,8 +254,6 @@ require("lazy").setup({
 		opts = {} -- this is equalent to setup({}) function
 	},
 
-	-- 0Some snippets, did not get this to work tho
-	"rafamadriz/friendly-snippets",
 	-- Lua snippets
 	{
 		"L3MON4D3/LuaSnip",

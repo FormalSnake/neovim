@@ -35,7 +35,6 @@ require('config.context')
 require('config.illuminate')
 require('config.notifyl')
 require('config.typescript')
-require('config.minimap')
 require('config.bulb')
 -- require("config.dashboard")
 
@@ -45,23 +44,8 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 if vim.g.neovide then
 	vim.o.guifont = "JetBrainsMonoNL Nerd Font:h14"
 end
-
-
--- vim.api.nvim_create_autocmd('ColorScheme', {
--- 	callback = function()
--- 		local highlights = {
--- 			'Normal',
--- 			'LineNr',
--- 			'Folded',
--- 			'NonText',
--- 			'SpecialKey',
--- 			'VertSplit',
--- 			'SignColumn',
--- 			'EndOfBuffer',
--- 			'TablineFill', -- this is specific to how I like my tabline to look like
--- 		}
--- 		for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
--- 	end,
--- })
--- vim.cmd(":TSEnable hightlight")
--- vim.cmd ":Lazy"
+if vim.loader then
+	vim.loader.enable()
+end
+vim.wo.number = true
+vim.wo.relativenumber = true

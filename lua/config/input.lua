@@ -17,6 +17,8 @@ map('n', '<leader>lt', ':TroubleToggle<CR>')
 map('n', '<leader>gdf', ':DiffviewOpen<CR>')
 map('n', '<leader>lo', ':TSToolsOrganizeImports<CR>')
 map('n', '<leader>rf', ':TSToolsRenameFile<CR>')
+map('n', '+', '<C-a>')
+map('n', '-', '<C-x>')
 
 
 vim.keymap.set('n', '<leader>v', function() require("nvterm.terminal").toggle "horizontal" end)

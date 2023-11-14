@@ -63,6 +63,14 @@ local mappings = {
 		l = { "<cmd>:tabnext<cr>", "Next" },
 		c = { "<cmd>:tabc<cr>", "Close" },
 	},
+	["T"] = {
+		name = "TreeSitter",
+		s = { "<cmd>:TSToggle hightlight<cr>", "Toggle hightlight" }
+	},
+	C = {
+		name = "CCC AKA Color tools",
+		p = { "<cmd>CccPick<cr>", "Color picker" }
+	},
 	-- ["b"] = {
 	-- 	"<cmd>lua require('telescope.builtin').buffers({ sort_mru = true, sort_lastused = true, ignore_current_buffer = true })<cr>",
 	-- 	"Buffers"

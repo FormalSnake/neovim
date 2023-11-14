@@ -24,6 +24,7 @@ format_on_save.setup({
 		typescript = formatters.lsp,
 		typescriptreact = formatters.lsp,
 		yaml = formatters.lsp,
+		zsh = formatters.lsp,
 		-- astro = formatters.lsp,
 		cs = formatters.lsp,
 
