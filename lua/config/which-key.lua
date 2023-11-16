@@ -184,10 +184,10 @@ local mappings = {
 			"<cmd>SymbolsOutline<cr>",
 			"Symbols Outline"
 		},
-		l = {
-			"<cmd>SLoad<cr>",
-			"Session load"
-		}
+		-- l = {
+		-- 	"<cmd>SLoad<cr>",
+		-- 	"Session load"
+		-- }
 	}
 }
 

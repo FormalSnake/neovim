@@ -30,6 +30,14 @@ require("lazy").setup({
 
 	},
 
+	{
+		'goolord/alpha-nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		config = function()
+			require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+		end
+	},
+
 	-- Better increase/descrease
 	{
 		"monaqa/dial.nvim",
@@ -64,10 +72,33 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{
-		'jedrzejboczar/possession.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' },
-	},
+	{ 'rmagatti/auto-session', },
+	-- {
+	-- 	'jedrzejboczar/possession.nvim',
+	-- 	dependencies = { 'nvim-lua/plenary.nvim' },
+	-- },
+	-- {
+	-- 	"gennaro-tedesco/nvim-possession",
+	-- 	dependencies = {
+	-- 		"ibhagwan/fzf-lua",
+	-- 	},
+	-- 	config = true,
+	-- 	init = function()
+	-- 		local possession = require("nvim-possession")
+	-- 		vim.keymap.set("n", "<leader>sl", function()
+	-- 			possession.list()
+	-- 		end)
+	-- 		vim.keymap.set("n", "<leader>sn", function()
+	-- 			possession.new()
+	-- 		end)
+	-- 		vim.keymap.set("n", "<leader>su", function()
+	-- 			possession.update()
+	-- 		end)
+	-- 		vim.keymap.set("n", "<leader>sd", function()
+	-- 			possession.delete()
+	-- 		end)
+	-- 	end,
+	-- },
 	{ 'kosayoda/nvim-lightbulb' },
 	{
 		'mrcjkb/rustaceanvim',
@@ -242,7 +273,7 @@ require("lazy").setup({
 	-- Shows the fancy autocomplete window O.O
 	"hrsh7th/nvim-cmp",
 	-- your code gets colors O.O
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
 	-- CMP with LSP integration
 	"hrsh7th/cmp-nvim-lsp",
 	-- The bar at the bottom of your neovim, mostly for aesthetics
