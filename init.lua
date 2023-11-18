@@ -36,6 +36,7 @@ require('config.illuminate')
 require('config.notifyl')
 require('config.typescript')
 require('config.bulb')
+require('config.custom.discipline')
 -- require("config.dashboard")
 
 

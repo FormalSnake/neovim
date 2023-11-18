@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+local discipline = require('config.custom.discipline')
+discipline.cowboy()
+
+
 local setup = {
 	plugins = {
 		marks = true,
