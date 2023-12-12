@@ -76,6 +76,8 @@ local mappings = {
 		name = "CCC AKA Color tools",
 		p = { "<cmd>CccPick<cr>", "Color picker" }
 	},
+	["r"] = { "<cmd>lua require'spectre'.open_file_search({select_word=true})<cr>", "Find/Replace Document" },
+	["R"] = { "<cmd>lua require'spectre'.open_visual({select_word=true})<cr>", "Find/Replace Project" },
 	-- ["b"] = {
 	-- 	"<cmd>lua require('telescope.builtin').buffers({ sort_mru = true, sort_lastused = true, ignore_current_buffer = true })<cr>",
 	-- 	"Buffers"
