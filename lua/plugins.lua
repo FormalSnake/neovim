@@ -215,7 +215,7 @@ require("lazy").setup({
 	-- This generates gitignores
 	'wintermute-cell/gitignore.nvim',
 	-- This makes the errors in your code point to the characters using lines, but it does get messy sometimes
-	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
