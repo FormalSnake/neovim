@@ -244,16 +244,51 @@ require("lazy").setup({
       vim.notify = require("notify")
     end,
   },
-  -- { 'echasnovski/mini.nvim',    version = '*', },
   {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      opts.scroll = {
-        enable = true,
-      }
-    end,
+    'gen740/SmoothCursor.nvim',
+    config = function()
+      require('smoothcursor').setup({
+        autostart = true,
+        cursor = "", -- cursor shape (need nerd font)
+        texthl = "SmoothCursor", -- highlight group, default is { bg = nil, fg = "#FFD400" }
+        linehl = nil, -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended
+        type = "default", -- define cursor movement calculate function, "default" or "exp" (exponential).
+        fancy = {
+          enable = true, -- enable fancy mode
+          head = { cursor = "ᐉ", texthl = "SmoothCursor", linehl = nil },
+          body = {
+            { cursor = "", texthl = "SmoothCursor" },
+            { cursor = "", texthl = "SmoothCursor" },
+            { cursor = "●", texthl = "SmoothCursor" },
+            { cursor = "●", texthl = "SmoothCursor" },
+            { cursor = "•", texthl = "SmoothCursor" },
+            { cursor = ".", texthl = "SmoothCursor" },
+            { cursor = ".", texthl = "SmoothCursor" },
+          },
+          tail = { cursor = nil, texthl = "SmoothCursor" },
+        },
+        flyin_effect = nil,                          -- "bottom" or "top"
+        speed = 25,                                  -- max is 100 to stick to your current position
+        intervals = 35,                              -- tick interval
+        priority = 10,                               -- set marker priority
+        timeout = 3000,                              -- timout for animation
+        threshold = 3,                               -- animate if threshold lines jump
+        disable_float_win = true,                    -- disable on float window
+        enabled_filetypes = nil,                     -- example: { "lua", "vim" }
+        disabled_filetypes = { "lazy", "NvimTree" }, -- this option will be skipped if enabled_filetypes is set. example: { "TelescopePrompt", "NvimTree" }
+      })
+    end
   },
+  -- { 'echasnovski/mini.nvim',    version = '*', },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   opts = function(_, opts)
+  --     opts.scroll = {
+  --       enable = true,
+  --     }
+  --   end,
+  -- },
   -- Allows you to make the background translucent
   'xiyaowong/transparent.nvim',
   -- This adds a scrollbar (doesn't work)
@@ -350,6 +385,7 @@ require("lazy").setup({
   -- "yamatsum/nvim-cursorline",
   -- IDK, plugins require it
   'm00qek/baleia.nvim',
+  "onsails/lspkind.nvim",
   -- Sidebar file explorer, mostly for aesthetics
   -- 'nvim-tree/nvim-tree.lua',
   {
