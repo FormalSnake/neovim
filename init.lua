@@ -1,5 +1,7 @@
+require("options")
+
 require('plugins')
-vim.cmd.colorscheme "onedark"
+-- vim.cmd.colorscheme "onedark"
 require('config.input')
 require('config.nvim-tree')
 -- require('config.null-ls')
@@ -38,15 +40,3 @@ require('config.typescript')
 require('config.bulb')
 require('config.custom.discipline')
 -- require("config.dashboard")
-
-
-
-vim.api.nvim_set_option("clipboard", "unnamed")
-if vim.g.neovide then
-	vim.o.guifont = "JetBrainsMonoNL Nerd Font:h14"
-end
-if vim.loader then
-	vim.loader.enable()
-end
-vim.wo.number = true
-vim.wo.relativenumber = true
