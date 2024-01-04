@@ -124,32 +124,6 @@ require("lazy").setup({
     end,
   },
   { 'rmagatti/auto-session', },
-  -- {
-  -- 	'jedrzejboczar/possession.nvim',
-  -- 	dependencies = { 'nvim-lua/plenary.nvim' },
-  -- },
-  -- {
-  -- 	"gennaro-tedesco/nvim-possession",
-  -- 	dependencies = {
-  -- 		"ibhagwan/fzf-lua",
-  -- 	},
-  -- 	config = true,
-  -- 	init = function()
-  -- 		local possession = require("nvim-possession")
-  -- 		vim.keymap.set("n", "<leader>sl", function()
-  -- 			possession.list()
-  -- 		end)
-  -- 		vim.keymap.set("n", "<leader>sn", function()
-  -- 			possession.new()
-  -- 		end)
-  -- 		vim.keymap.set("n", "<leader>su", function()
-  -- 			possession.update()
-  -- 		end)
-  -- 		vim.keymap.set("n", "<leader>sd", function()
-  -- 			possession.delete()
-  -- 		end)
-  -- 	end,
-  -- },
   { 'kosayoda/nvim-lightbulb' },
   {
     'mrcjkb/rustaceanvim',
@@ -193,7 +167,12 @@ require("lazy").setup({
     end,
   },
   -- Inline git blame to see who made the line
-  'f-person/git-blame.nvim',
+  {
+    "FabijanZulj/blame.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>b", "<cmd>ToggleBlame virtual<CR>", {})
+    end,
+  },
   -- Allows you to comment current lines using a shortcut
   {
     'numToStr/Comment.nvim',
@@ -279,6 +258,31 @@ require("lazy").setup({
       })
     end
   },
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      local scrollbar = require("scrollbar")
+      scrollbar.setup({
+        show = true,
+        handle = {
+          color = "#2e303e",
+        },
+        marks = {},
+        handlers = {
+          cursor = false,
+        },
+        excluded_filetypes = {
+          "prompt",
+          "TelescopePrompt",
+          "noice",
+          "NvimTree",
+          "alpha",
+        },
+      })
+
+      local group = vim.api.nvim_create_augroup("_scrollbar", { clear = true })
+    end
+  },
   -- { 'echasnovski/mini.nvim',    version = '*', },
   -- {
   --   "echasnovski/mini.animate",
@@ -290,7 +294,7 @@ require("lazy").setup({
   --   end,
   -- },
   -- Allows you to make the background translucent
-  'xiyaowong/transparent.nvim',
+  -- 'xiyaowong/transparent.nvim',
   -- This adds a scrollbar (doesn't work)
   -- 'petertriho/nvim-scrollbar',
   -- This adds LSP progress indicators
