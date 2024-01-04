@@ -22,6 +22,14 @@ require("lazy").setup({
   -- },
 
   "nvim-treesitter/nvim-treesitter-context",
+  "wuelnerdotexe/vim-astro",
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 10
+    end,
+  },
   {
     "tinted-theming/base16-vim",
     priority = 1000,
@@ -161,16 +169,28 @@ require("lazy").setup({
     },
   },
   "RRethy/vim-illuminate",
-  {
-    "FormalSnake/base46-colors",
-
-    priority = 1000,
-  },
+  -- {
+  --   "FormalSnake/base46-colors",
+  --
+  --   priority = 1000,
+  -- },
   "b0o/incline.nvim",
   -- Makes the UI pretty :)
   {
     'stevearc/dressing.nvim',
-    opts = {},
+    lazy = true,
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
   },
   -- Inline git blame to see who made the line
   'f-person/git-blame.nvim',
@@ -188,7 +208,6 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {},
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
@@ -196,13 +215,34 @@ require("lazy").setup({
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-    }
+    },
   },
   {
     "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
+    keys = {
+      {
+        "<leader>h",
+        function()
+          require("notify").dismiss({ silent = true, pending = true })
+        end,
+        desc = "Dismiss all Notifications",
+      },
     },
+    opts = {
+      render = "minimal",
+      animation_style = "fade",
+      background_colour = "#1E2021",
+      timeout = 2000,
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+    },
+    init = function()
+      vim.notify = require("notify")
+    end,
   },
   -- { 'echasnovski/mini.nvim',    version = '*', },
   {
@@ -252,14 +292,58 @@ require("lazy").setup({
   "nvChad/nvim-colorizer.lua",
   -- Same thing as before, but can display hsl(296, 25, 50%)
   'brenoprata10/nvim-highlight-colors',
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "lua_ls" },
+          -- Conform will run multiple formatters sequentially
+          python = { "isort", "black" },
+          -- Use a sub-list to run only the first available formatter
+          javascript = { { "prettier" } },
+        },
+        format_on_save = {
+          -- These options will be passed to conform.format()
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      })
+    end
+  },
   -- Formats on save
-  "elentok/format-on-save.nvim",
+  -- "elentok/format-on-save.nvim",
   -- Adds indicators to see what function you're in
-  { "lukas-reineke/indent-blankline.nvim" },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+      },
+    },
+    main = "ibl",
+  },
   -- This allows for us to show images in neovim using any terminal emulator!!
   "MaximilianLloyd/ascii.nvim",
   -- UI library required for the fancy UI ones
-  "MunifTanjim/nui.nvim",
+  { "MunifTanjim/nui.nvim",            lazy = true },
   -- This adds colors to tailwind syntax highlighting
   "roobert/tailwindcss-colorizer-cmp.nvim",
   -- Highlights words under your cursor, and also the same words accross the file
@@ -267,9 +351,65 @@ require("lazy").setup({
   -- IDK, plugins require it
   'm00qek/baleia.nvim',
   -- Sidebar file explorer, mostly for aesthetics
-  'nvim-tree/nvim-tree.lua',
+  -- 'nvim-tree/nvim-tree.lua',
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function()
+      -- local opts = { noremap = true, silent = true }
+      -- local map = vim.api.nvim_set_keymap
+      -- map("n", "<leader>e", ":Neotree toggle<CR>", opts)
+      require("neo-tree").setup({
+        popup_border_style = "rounded",
+        window = {
+          position = "float",
+        },
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+          },
+        },
+      })
+    end,
+  },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    config = function()
+      require("telescope").load_extension("smart_open")
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    },
+  },
   -- This provides icons for the file managers, etc.
-  'nvim-tree/nvim-web-devicons',
+  {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").set_icon({
+        astro = {
+          icon = "",
+          color = "#d18770",
+          name = "Astro",
+        },
+        sol = {
+          icon = "",
+          color = "#638EF6",
+          name = "Solidity",
+        },
+      })
+    end,
+  },
   -- The frontend for the ascii.nvim
   'samodostal/image.nvim',
   -- Lua function wrapper
@@ -308,7 +448,40 @@ require("lazy").setup({
   -- Built in terminal if you are too lazy to use tmux panes
   "NvChad/nvterm",
   -- Git features
-  -- "lewis6991/gitsigns.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
+      },
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        end
+
+        -- stylua: ignore start
+        map("n", "]h", gs.next_hunk, "Next Hunk")
+        map("n", "[h", gs.prev_hunk, "Prev Hunk")
+        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+        map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+        map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+        map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", "<leader>ghd", gs.diffthis, "Diff This")
+        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+      end,
+    },
+  },
   -- LSP installer
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
@@ -317,7 +490,7 @@ require("lazy").setup({
   -- Shows the fancy autocomplete window O.O
   "hrsh7th/nvim-cmp",
   -- your code gets colors O.O
-  { "nvim-treesitter/nvim-treesitter",    build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- CMP with LSP integration
   "hrsh7th/cmp-nvim-lsp",
   -- The bar at the bottom of your neovim, mostly for aesthetics
