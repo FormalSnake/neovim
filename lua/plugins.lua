@@ -446,7 +446,18 @@ require("lazy").setup({
   -- Makes the theme work with the custom telescope layout
   -- "notken12/base46-colors",
   -- Built in terminal if you are too lazy to use tmux panes
-  "NvChad/nvterm",
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      open_mapping = [[<leader>v]],
+      direction = "horizontal",
+      close_on_exit = true,
+      float_opts = {
+        border = "curved",
+      },
+    },
+  },
   -- Git features
   {
     "lewis6991/gitsigns.nvim",
@@ -488,7 +499,17 @@ require("lazy").setup({
   -- Improves lsp idk
   "glepnir/lspsaga.nvim",
   -- Shows the fancy autocomplete window O.O
-  "hrsh7th/nvim-cmp",
+  {
+    "hrsh7th/nvim-cmp",
+    version = false, -- last release is way too old
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+    },
+  },
   -- your code gets colors O.O
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- CMP with LSP integration
@@ -505,10 +526,30 @@ require("lazy").setup({
   -- Lua snippets
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp"
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
+    -- stylua: ignore
+    keys = {
+      {
+        "<tab>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = "i",
+      },
+      { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
   },
   -- Basically tabs
   -- 'akinsho/bufferline.nvim',

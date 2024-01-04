@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
 
 function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true, nowait = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true, nowait = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- map('n', '<leader>ff', ':Telescope find_files<CR>')
@@ -21,9 +21,9 @@ map('n', '+', '<C-a>')
 map('n', '-', '<C-x>')
 
 
-vim.keymap.set('n', '<leader>v', function() require("nvterm.terminal").toggle "horizontal" end)
+-- vim.keymap.set('n', '<leader>v', function() require("nvterm.terminal").toggle "horizontal" end)
 vim.keymap.set('n', '<leader>dl', function()
-	require("nvim-lightbulb").debug()
+  require("nvim-lightbulb").debug()
 end)
 
 -- Define a function to set your window options
