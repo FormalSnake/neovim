@@ -32,24 +32,24 @@ table.insert(dashboard.config.layout, 5, {
   val = 1,
 })
 -- Send config to alpha
--- alpha.setup(dashboard.opts)
+alpha.setup(dashboard.opts)
 
 -- Disable folding on alpha buffer
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
-require("alpha").setup(dashboard.opts)
-vim.api.nvim_create_autocmd("User", {
-  callback = function()
-    local stats = require("lazy").stats()
-    local ms = math.floor(stats.startuptime * 100) / 100
-    dashboard.section.footer.val = "󱐌 Lazy-loaded "
-        .. stats.loaded
-        .. "/"
-        .. stats.count
-        .. " plugins in "
-        .. ms
-        .. "ms"
-    pcall(vim.cmd.AlphaRedraw)
-  end,
-})
+-- require("alpha").setup(dashboard.opts)
+-- vim.api.nvim_create_autocmd("User", {
+--   callback = function()
+--     local stats = require("lazy").stats()
+--     local ms = math.floor(stats.startuptime * 100) / 100
+--     dashboard.section.footer.val = "󱐌 Lazy-loaded "
+--         .. stats.loaded
+--         .. "/"
+--         .. stats.count
+--         .. " plugins in "
+--         .. ms
+--         .. "ms"
+--     pcall(vim.cmd.AlphaRedraw)
+--   end,
+-- })
