@@ -24,6 +24,19 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter-context",
   "wuelnerdotexe/vim-astro",
   {
+    "chrisgrieser/nvim-scissors",
+    -- dependencies = "nvim-telescope/telescope.nvim",
+  },
+  {
+    "gambhirsharma/vesper.nvim",
+    lazy = false,
+    priority = 1000,
+    name = "vesper",
+    -- config = function()
+    --   vim.cmd([[colorscheme vesper]])
+    -- end
+  },
+  {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
     config = function()
@@ -37,26 +50,28 @@ require("lazy").setup({
       local cmd = vim.cmd
       local g = vim.g
       local current_theme_name = os.getenv('BASE16_THEME')
-      if current_theme_name and g.colors_name ~= 'base16-' .. current_theme_name then
+      if current_theme_name == 'black-metal-bathory' then
+        cmd('colorscheme vesper')
+      elseif current_theme_name and g.colors_name ~= 'base16-' .. current_theme_name then
         cmd('let base16colorspace=256')
         cmd('colorscheme base16-' .. current_theme_name)
       end
     end
   },
-  {
-    "RRethy/nvim-base16",
-    enable = true,
-    config = function()
-      require("base16-colorscheme").with_config({
-        telescope = false,
-        indentblankline = true,
-        notify = true,
-        ts_rainbow = true,
-        cmp = true,
-        illuminate = true,
-      })
-    end
-  },
+  -- {
+  --   "RRethy/nvim-base16",
+  --   enable = true,
+  --   config = function()
+  --     require("base16-colorscheme").with_config({
+  --       telescope = false,
+  --       indentblankline = true,
+  --       notify = true,
+  --       ts_rainbow = true,
+  --       cmp = true,
+  --       illuminate = true,
+  --     })
+  --   end
+  -- },
   {
     "alexghergh/nvim-tmux-navigation",
     config = function()
@@ -85,10 +100,13 @@ require("lazy").setup({
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
   },
+  'wbthomason/packer.nvim',
+  -- {
+  --   'goolord/alpha-nvim',
+  --   branch = 'feature/startify-fortune',
+  --   dependencies = { 'BlakeJC94/alpha-nvim-fortune' },
+  -- },
   -- Better increase/descrease
   {
     "monaqa/dial.nvim",

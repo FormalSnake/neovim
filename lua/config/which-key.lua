@@ -185,11 +185,20 @@ local mappings = {
       "Toggle tree" },
   },
   s = {
-    name = "Symbols & Sessions",
+    name = "Symbols & Snippets",
     o = {
       "<cmd>SymbolsOutline<cr>",
       "Symbols Outline"
     },
+    e = {
+      function() require("scissors").editSnippet() end,
+      "Edit Snippets"
+    },
+    a = {
+      function() require("scissors").addNewSnippet() end,
+      "Add Snippets"
+    },
+
     -- l = {
     -- 	"<cmd>SLoad<cr>",
     -- 	"Session load"
