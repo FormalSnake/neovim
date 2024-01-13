@@ -56,9 +56,10 @@ require("lazy").setup({
       local cmd = vim.cmd
       local g = vim.g
       local current_theme_name = os.getenv('BASE16_THEME')
-      if current_theme_name == 'black-metal-bathory' then
-        cmd('colorscheme vesper')
-      elseif current_theme_name and g.colors_name ~= 'base16-' .. current_theme_name then
+      -- if current_theme_name == 'black-metal-bathory' then
+      --   cmd('colorscheme vesper')
+      --[[ else ]]
+      if current_theme_name and g.colors_name ~= 'base16-' .. current_theme_name then
         cmd('let base16colorspace=256')
         cmd('colorscheme base16-' .. current_theme_name)
       end
@@ -280,6 +281,15 @@ require("lazy").setup({
         enabled_filetypes = nil,                     -- example: { "lua", "vim" }
         disabled_filetypes = { "lazy", "NvimTree" }, -- this option will be skipped if enabled_filetypes is set. example: { "TelescopePrompt", "NvimTree" }
       })
+    end
+  },
+  {
+    'wfxr/minimap.vim',
+    build = "cargo install --locked code-minimap",
+    init = function()
+      vim.g.minimap_width = 10
+      vim.g.minimap_auto_start = 1
+      vim.g.minimap_auto_start_win_enter = 1
     end
   },
   {
