@@ -17,7 +17,7 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
   dashboard.button("enter", "󰈚  Restore Session", ":SessionRestore<CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("f", "  Find File", ":cd $HOME/development | Telescope find_files<CR>"),
+  dashboard.button("f", "  Find File", "Telescope find_files<CR>"),
   dashboard.button("r", "󰈚  Recent Files", ":Telescope oldfiles<CR>"),
   dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
   dashboard.button("q", "󰗼  Quit NVIM", ":qa<CR>"),

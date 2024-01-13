@@ -28,6 +28,12 @@ require("lazy").setup({
     -- dependencies = "nvim-telescope/telescope.nvim",
   },
   {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup {}
+    end
+  },
+  {
     "gambhirsharma/vesper.nvim",
     lazy = false,
     priority = 1000,
