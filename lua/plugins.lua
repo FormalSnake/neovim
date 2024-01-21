@@ -22,6 +22,7 @@ require("lazy").setup({
   -- },
 
   "nvim-treesitter/nvim-treesitter-context",
+  { 'rasulomaroff/reactive.nvim' },
   "wuelnerdotexe/vim-astro",
   {
     "chrisgrieser/nvim-scissors",
